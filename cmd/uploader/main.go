@@ -44,7 +44,7 @@ func main() {
 	}
 	defer dir.Close()
 	uploadControl := make(chan struct{}, 100)
-	errorFileUpload := make(chan string)
+	errorFileUpload := make(chan string, 10)
 
 	go func() {
 		for {
